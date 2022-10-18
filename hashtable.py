@@ -13,3 +13,23 @@ def intersection(lista, listb):
             listc.append(val)
     print(listc)
 intersection(lista, listb)
+
+'''Write a function that accepts an array of strings and returns the first
+duplicate value it finds. For example, if the array is ["a", "b", "c", "d", "c", "e",
+"f"], the function should return "c", since its duplicated within the array.
+(You can assume that theres one pair of duplicates within the array.)
+Make sure the function has an efficiency of O(N).'''
+
+
+
+a = ["a", "b", "c", "d", "b", "e","f"]
+
+def duplicate(a):
+    hashtable = {}
+    for char in a:
+        if char in hashtable:
+            return char
+        hashtable[char] = True
+        
+
+print(duplicate(a))
