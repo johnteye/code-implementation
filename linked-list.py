@@ -27,10 +27,14 @@ while node:
     node = node.next
 '''
 
+from ast import Break
+from inspect import _void
+
+
 class Node:
     def __init__(self, val, next_node = None):
         self.val = val
-        self.next = next
+        self.next_node = next_node
 
 node_1 = Node("Once")
 node_2 = Node("upon")
@@ -46,15 +50,27 @@ class LinkedList:
     def __init__(self, first_node):
         self.first_node = first_node
 
-    def read(self, index):
+    def read(self,index):
         current_node = self.first_node
         current_index = 0
 
         while current_index < index:
             current_node = current_node.next_node
             current_index +=1
-            return current_node.val 
+        return current_node.val
+
+    def index_of(self, value):
+        current_node = self.first_node
+        current_index = 0
         
+        if current_node.val == value:
+            return current_index
+        else:
+            current_node = current_node.next_node
+            current_index += 1
+
 list1 = LinkedList(node_1)
 
-print(list1.read(2))
+print(list1.read(1))
+print(list1.index_of("upon"))
+
